@@ -43,6 +43,11 @@ export function TourListPage() {
     }
   }, [tours, isLoading, navigate]);
 
+  // If redirecting, show nothing to prevent flash of old design
+  if (!isLoading && tours && tours.length > 0) {
+    return null;
+  }
+
   // Featured tour = first published tour with a valid entry scene image
   const featuredTour = tours?.[0] ?? null;
   const heroImageUrl = featuredTour?.entry_scene_image_url

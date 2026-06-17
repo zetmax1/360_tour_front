@@ -79,7 +79,7 @@ export function TourListPage() {
         {/* Hero text overlay */}
         <div className="absolute inset-x-0 bottom-12 px-6 sm:px-12 pointer-events-none">
           <h1 className="text-3xl sm:text-5xl font-bold text-white drop-shadow-lg leading-tight">
-            Explore Virtual Tours
+            Explore virtual tours
           </h1>
           {featuredTour && (
             <p className="text-white/60 text-sm sm:text-base mt-2">
@@ -99,7 +99,7 @@ export function TourListPage() {
       {/* ── Tour cards horizontal strip ── */}
       <section className="px-6 sm:px-12 py-8">
         <h2 className="text-lg font-semibold text-white/80 mb-5">
-          All Tours
+          All tours
         </h2>
 
         {isLoading ? (

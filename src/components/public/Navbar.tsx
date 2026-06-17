@@ -13,7 +13,7 @@ export function Navbar() {
             <span className="text-white text-xs font-bold">360</span>
           </div>
           <span className="text-white font-semibold text-sm group-hover:text-blue-400 transition-colors">
-            Virtual Tour
+            Virtual tour
           </span>
         </Link>
       </div>

@@ -37,7 +37,7 @@ export function TourViewerPage() {
   const [activeScene, setActiveScene] = useState<Scene | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isLoadingPanorama, setIsLoadingPanorama] = useState(true);
-  const [sidebarOpen, setSidebarOpen] = useState(true); // ← open by default
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 1024); // closed on mobile, open on desktop
   const [isAutoRotating, setIsAutoRotating] = useState(true); // auto-rotation on by default
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,6 +54,15 @@ export function TourViewerPage() {
   useEffect(() => {
     setActiveScene(null);
   }, [slug]);
+
+  // Handle sidebar state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarOpen(window.innerWidth >= 1024);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // 1. Derive scenes from tour when loaded
   useEffect(() => {

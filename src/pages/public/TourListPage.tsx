@@ -43,8 +43,8 @@ export function TourListPage() {
     }
   }, [tours, isLoading, navigate]);
 
-  // If redirecting, show nothing to prevent flash of old design
-  if (!isLoading && tours && tours.length > 0) {
+  // Show nothing while loading or redirecting to prevent flash of old design
+  if (isLoading || (tours && tours.length > 0)) {
     return null;
   }
 

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import type { Scene } from '@/types/scene';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
+
 import { getImageUrl } from '@/utils/formatters';
 
 interface SceneCardProps {

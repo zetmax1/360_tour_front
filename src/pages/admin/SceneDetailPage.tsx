@@ -84,9 +84,6 @@ export function SceneDetailPage() {
   if (!scene) return null;
 
   // Destination choices must exclude this scene
-  const destinationOptions = (allScenes ?? [])
-    .filter((s) => s.id !== sceneId)
-    .map((s) => ({ value: s.id, label: s.title }));
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8">

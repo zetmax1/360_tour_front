@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import type { SceneLink } from '@/types/link';
-import { Button } from '@/components/ui/Button';
 
 interface LinkRowProps {
   link: SceneLink;
@@ -9,7 +7,6 @@ interface LinkRowProps {
 }
 
 export function LinkRow({ link, onEdit, onDelete }: LinkRowProps) {
-  const [deleteHover, setDeleteHover] = useState(false);
 
   return (
     <div className="flex items-center gap-3 py-3 px-4 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
@@ -50,8 +47,6 @@ export function LinkRow({ link, onEdit, onDelete }: LinkRowProps) {
         </button>
         <button
           onClick={() => onDelete(link)}
-          onMouseEnter={() => setDeleteHover(true)}
-          onMouseLeave={() => setDeleteHover(false)}
           aria-label={`Delete link to ${link.to_scene_title}`}
           className="w-10 h-10 flex items-center justify-center rounded-lg text-danger bg-red-50 border border-red-100 active:bg-red-100 active:scale-95 transition-all"
         >

@@ -29,22 +29,3 @@ export async function validatePanoramaImage(file: File): Promise<string | null> 
   return null; // valid
 }
 
-/**
- * Read the aspect ratio (width / height) of an image file.
- * Returns null if the image cannot be decoded.
- */
-function getImageAspectRatio(file: File): Promise<number | null> {
-  return new Promise((resolve) => {
-    const url = URL.createObjectURL(file);
-    const img = new Image();
-    img.onload = () => {
-      URL.revokeObjectURL(url);
-      resolve(img.width / img.height);
-    };
-    img.onerror = () => {
-      URL.revokeObjectURL(url);
-      resolve(null);
-    };
-    img.src = url;
-  });
-}

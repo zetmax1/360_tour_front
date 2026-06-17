@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -106,10 +106,10 @@ export function LinkModal({
         {/* LEFT — Form */}
         <div className="flex flex-col gap-4 lg:w-72 flex-shrink-0">
           <LinkForm
-            register={register}
-            control={control}
+            register={register as any}
+            control={control as any}
             errors={errors}
-            setValue={setValue}
+            setValue={setValue as any}
             availableScenes={availableScenes}
             editingLink={link || null}
             isPending={createLink.isPending || updateLink.isPending}

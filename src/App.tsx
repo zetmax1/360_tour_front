@@ -120,7 +120,7 @@ const router = createBrowserRouter([
   future: {
     v7_startTransition: true,
     v7_relativeSplatPath: true,
-  },
+  } as any,
 });
 
 import { AuthInitializer } from '@/components/auth/AuthInitializer';

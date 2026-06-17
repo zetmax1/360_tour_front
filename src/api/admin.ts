@@ -2,9 +2,9 @@ import api from './client';
 import { queryClient } from '../App';
 
 export const adminApi = {
-  getCacheStats: () => api.get('/admin/cache/stats'),
+  getCacheStats: (): Promise<any> => api.get('/admin/cache/stats'),
 
-  clearAllCache: async () => {
+  clearAllCache: async (): Promise<any> => {
     const result = await api.post('/admin/cache/clear');
     // Immediately clear ALL TanStack Query cache
     // so the next navigation fetches fresh from backend
@@ -12,7 +12,7 @@ export const adminApi = {
     return result;
   },
 
-  clearTourCache: async (tourId: string) => {
+  clearTourCache: async (tourId: string): Promise<any> => {
     const result = await api.post(`/admin/cache/clear/tour/${tourId}`);
     // Invalidate only tour-related queries
     queryClient.invalidateQueries({ queryKey: ['tours'] });
@@ -20,5 +20,5 @@ export const adminApi = {
     return result;
   },
 
-  warmCache: () => api.post('/admin/cache/warm'),
+  warmCache: (): Promise<any> => api.post('/admin/cache/warm'),
 };

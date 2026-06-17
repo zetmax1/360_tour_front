@@ -3,9 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useTourById, useUpdateTour, useTogglePublish } from '@/hooks/useTour';
+import { useTourById, useTogglePublish } from '@/hooks/useTour';
 import { useScenesByTour, useCreateScene, useDeleteScene, useSetEntryPoint } from '@/hooks/useScene';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { adminApi } from '@/api/admin';
 import toast from 'react-hot-toast';
 import { Spinner } from '@/components/ui/Spinner';
@@ -43,8 +43,6 @@ export function TourDetailPage() {
   const createScene = useCreateScene(tourId!);
   const deleteScene = useDeleteScene(tourId!);
   const setEntryPoint = useSetEntryPoint(tourId!);
-  const queryClient = useQueryClient();
-
   const clearCacheMutation = useMutation({
     mutationFn: () => adminApi.clearTourCache(tourId!),
     onSuccess: (result) => toast.success(result.message || 'Tour cache cleared'),

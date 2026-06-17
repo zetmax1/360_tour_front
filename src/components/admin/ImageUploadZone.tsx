@@ -16,8 +16,6 @@ interface UploadResult {
 interface ImageUploadZoneProps {
   onUploaded: (result: UploadResult) => void;
   currentUrl?: string | null;
-  label?: string;
-  validateAspectRatio?: boolean;
 }
 
 type UploadState =
@@ -31,8 +29,6 @@ type UploadState =
 export function ImageUploadZone({
   onUploaded,
   currentUrl,
-  label = 'Drag panorama image here or click to browse',
-  validateAspectRatio = true,
 }: ImageUploadZoneProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);

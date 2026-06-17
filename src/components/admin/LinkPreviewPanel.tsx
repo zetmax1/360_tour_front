@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useMemo } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import { PreviewArrow } from './PreviewArrow';
 import { degreeToScreenX, isLinkInFrontOfViewer } from '@/utils/degree';
 

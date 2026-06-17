@@ -5,6 +5,8 @@ export interface SceneLink {
   to_scene_title: string;
   degree: number;
   label: string | null;
+  to_scene_image_url?: string;
+  to_scene_thumbnail_url?: string;
 }
 
 export interface CreateLinkPayload {

@@ -71,4 +71,3 @@ export default defineConfig([
   },
 ])
 ```
-# 360_tour_front
